@@ -1,0 +1,77 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans|Roboto";
+* {
+   font-family: "Roboto", "Open Sans", Arial, Helvetica, sans-serif;
+   color: #FFF;
+}
+
+body {
+  background-color: #36383E;
+  left: 0px;
+  top: 0px;
+  width: 400px;
+}
+
+.button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline;
+  font-variant: small-caps;
+  left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 10px;
+  right: 0px;
+}
+
+.button:hover {
+  background-color: #000;
+}
+
+table {
+  width: 100%;
+}
+
+table.select-forums td {
+  border-radius: 5px;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+table.select-forums tr:nth-child(even) td {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+table.select-forums tr:nth-child(odd) td {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+table.select-forums label {
+  cursor: pointer;
+  touch-callout: none;
+  user-select: none;
+  vertical-align: middle;
+  -webkit-user-select: none;
+}
+
+footer {
+  background-color: #202329;
+  left: 0px;
+  margin: 0px;
+  padding: 5px 10px;
+  text-align: justify;
+  top: 0px;
+}
+
+hr {
+  border-color: #333;
+}
+
+a.outsource {
+  color: #0AF;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+}
