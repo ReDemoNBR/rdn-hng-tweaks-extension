@@ -3,7 +3,7 @@
 	//get his options to hide the non english subforum from chrome sync and sets the hideNonEnglish function as a callback
 	var forum = /forum/i.test(document.title) && true || false;
 	if(forum){
-		chrome.storage.sync.get("hide_non_english", hideNonEnglish);
+		chrome.storage.local.get("hide_non_english", hideNonEnglish);
 		var listening = document.getElementById("bbp-forum-1145121");
 		if(listening){
 			listening.innerHTML = listening.innerHTML.replace(/we are listening\. influence/gi, "We are NEVER listening. You don't influence");
@@ -32,7 +32,7 @@
 	for(var i=0; i<styles.length; i++){
 		styles[i].innerHTML = styles[i].innerHTML.replace(/(background-image: ).*(;)/gi, "$1 none$2");
 	}
-	
+
 	//remove certain texts
 	var magnificent = document.getElementById("text-2");
 	magnificent.innerHTML = magnificent.innerHTML.replace(/the heart of magnificent copenhagen/gi, "Copenhagen");

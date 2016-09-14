@@ -44,7 +44,7 @@ function saveHideNonEnglish(){
 		if(obj[i])
 			array.push(i);
 	status.innerHTML = JSON.stringify(array, null, "\t");
-	chrome.storage.sync.set({hide_non_english: JSON.stringify(array)}, ()=>status.innerHTML="Settings saved");
+	chrome.storage.local.set({hide_non_english: JSON.stringify(array)}, ()=>status.innerHTML="Settings saved");
 }
 
 
