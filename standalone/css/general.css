@@ -1,0 +1,106 @@
+@import "https://fonts.googleapis.com/css?family=Open+Sans|Roboto";
+* {
+
+}
+
+body {
+  background-color: #36383E;
+  color: #FFF;
+  font-family: "Roboto", "Open Sans", Arial, Helvetica, sans-serif;
+  left: 0px;
+  overflow: hidden;
+  top: 0px;
+  width: 100%;
+}
+
+.button {
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline;
+  font-variant: small-caps;
+  left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px 10px;
+  right: 0px;
+}
+
+.button:hover {
+  background-color: #000;
+}
+
+table {
+  width: 100%;
+}
+
+table.select-options {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px;
+  right: 0px;
+}
+
+table.select-options td {
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  vertical-align: middle;
+}
+
+table.select-options tr:nth-child(odd) td {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+table.select-options tr:nth-child(even) td {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+ol, ul {
+  list-style-type: none;
+  display: block;
+  float: left;
+}
+
+li {
+  overflow: hidden;
+}
+
+label[for] {
+  cursor: pointer;
+  touch-callout: none;
+  user-select: none;
+  vertical-align: bottom;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+footer {
+  background-color: #202329;
+  left: 0px;
+  margin: 0px;
+  padding: 5px 10px;
+  text-align: justify;
+  top: 0px;
+  width: 98%;
+}
+
+hr {
+  border-color: #333;
+  width: 100%;
+}
+
+a.outsource {
+  color: #0AF;
+}
+
+input[type=checkbox] {
+  cursor: pointer;
+  vertical-align: bottom;
+}

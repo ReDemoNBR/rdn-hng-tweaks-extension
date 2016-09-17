@@ -1,5 +1,5 @@
 (function(){
-	document.title = document.title.replace(/heroes \& generals hq/i, "H&G Forum");
+	document.title = document.title.replace(/heroes \& generals/i, "H&G Forum").replace(/ - moderator sub-fora/gi, "");
 	//get his options to hide the non english subforum from chrome sync and sets the hideNonEnglish function as a callback
 	var forum = /forum/i.test(document.title) && true || false;
 	if(forum){
@@ -32,7 +32,7 @@
 	for(var i=0; i<styles.length; i++){
 		styles[i].innerHTML = styles[i].innerHTML.replace(/(background-image: ).*(;)/gi, "$1 none$2");
 	}
-	
+
 	//remove certain texts
 	var magnificent = document.getElementById("text-2");
 	magnificent.innerHTML = magnificent.innerHTML.replace(/the heart of magnificent copenhagen/gi, "Copenhagen");

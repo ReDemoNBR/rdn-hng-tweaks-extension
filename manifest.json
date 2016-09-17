@@ -7,13 +7,14 @@
   "version": "0.1.2",
   "background": {
     "persistent": false,
-    "scripts": ["js/background.js"]
+    "scripts": ["background.js"]
   },
   "browser_action": {
-    "default_icon": "icon/rdn_icon.png",
+    "default_icon": "icon/rdn_icon-128px.png",
     "default_popup": "html/popup.html",
     "default_title": "RDN H&G site upgrades"
   },
+  "options_page": "standalone/html/options.html",
   "icons": {
     "48": "icon/rdn_icon-48px.png",
     "96": "icon/rdn_icon-96px.png",
@@ -25,5 +26,6 @@
     "webNavigation",
     "*://*.heroesandgenerals.com/*",
     "*://heroesandgenerals.com/*"
-  ]
+  ],
+  "minimum_chrome_version": "52.0"
 }
