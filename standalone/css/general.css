@@ -1,28 +1,38 @@
 @import "https://fonts.googleapis.com/css?family=Open+Sans|Roboto";
-* {
 
+:focus {
+  outline: none;
 }
 
 body {
   background-color: #36383E;
   color: #FFF;
   font-family: "Roboto", "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 1.05rem;
   left: 0px;
-  overflow: hidden;
+  text-rendering: optimizeLegibility;
   top: 0px;
   width: 100%;
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 {
+  text-align: center;
 }
 
 .button {
   background-color: rgba(0, 0, 0, 0.4);
   border: none;
   border-radius: 5px;
+  color: #FFF;
   cursor: pointer;
   display: inline;
   font-variant: small-caps;
   left: 0px;
   margin-left: auto;
   margin-right: auto;
+  min-width: 150px;
   padding: 5px 10px;
   right: 0px;
 }
@@ -44,19 +54,30 @@ table.select-options {
   right: 0px;
 }
 
+table.select-options td, table.select-options th {
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+table.select-options th {
+  font-size: 125%;
+  font-weight: 600;
+  padding: 10px;
+  text-align: center;
+}
+
 table.select-options td {
   border-radius: 5px;
   cursor: pointer;
   text-align: left;
-  vertical-align: middle;
 }
 
-table.select-options tr:nth-child(odd) td {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-table.select-options tr:nth-child(even) td {
+table.select-options tr:nth-child(even) td, table.select-options tr:nth-child(odd) th {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+table.select-options tr:nth-child(odd) td, table.select-options tr:nth-child(even) th {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 ol, ul {
@@ -73,7 +94,7 @@ label[for] {
   cursor: pointer;
   touch-callout: none;
   user-select: none;
-  vertical-align: bottom;
+  vertical-align: middle;
   -moz-user-select: none;
   -ms-user-select: none;
   -khtml-user-select: none;
@@ -101,6 +122,8 @@ a.outsource {
 }
 
 input[type=checkbox] {
+  border-style: 5px;
   cursor: pointer;
-  vertical-align: bottom;
+  vertical-align: middle;
+  width: 50px;
 }
