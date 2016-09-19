@@ -5,7 +5,7 @@
 	}
 
 	//forum precedence info
-	var forums = [
+	let forums = [
 		{
 			id: "bbp-forum-1145134",
 			name: "news",

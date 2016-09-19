@@ -1,16 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-  getTabURL(function(url) {
-    if(/heroesandgenerals.com/i.test(url)){
-      if(/\/forums\/topic\//i.test(url)){
-        let btn = document.getElementById("btnLockTopic");
-        btn.style.display = "inline";
-      }
-    }
-    else{
-      document.getElementById("divStatus").innerHTML = "Not in H&G site, extension makes no effect";
-    }
-  });
-});
+document.addEventListener("DOMContentLoaded", onLoad);
+
+
+function onLoad(){
+  getTabURL((url)=>/\/forums\/topic\//i.test(url) && document.getElementById("btnLockTopic").setAttribute("style", "display:inline"));
+  document.getElementById("btnOptions").addEventListener("click", ()=>console.log("clicked") || chrome.runtime.openOptionsPage());
+}
 
 
 function getTabURL(cb) {

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 	chrome.storage.sync.get("hide_non_english", getOptions);
 	document.getElementById("btnApply").addEventListener("click", saveHideNonEnglish);
-	var rows = document.getElementsByClassName("select-forums")[0].rows;
+	let rows = document.getElementsByClassName("select-forums")[0].rows;
 	for(let i=0; i<rows.length; i++){
 		let cells = rows[i].cells;
 		for(let i=0; i<cells.length; i++){
@@ -15,7 +15,7 @@ function getOptions(res){
 	if(!res || !res.hide_non_english){
 		return;
 	}
-	var options = JSON.parse(res.hide_non_english);
+	let options = JSON.parse(res.hide_non_english);
 	for(let i=0; i<options.length; i++){
 		document.getElementById(getLanguageShort(options[i])).checked = true;
 	}
@@ -23,9 +23,9 @@ function getOptions(res){
 
 
 function saveHideNonEnglish(){
-	var status = document.getElementById("divStatus");
+	let status = document.getElementById("divStatus");
 	status.innerHTML = "saving...";
-	var obj = {
+	let obj = {
 		czech: document.getElementById("cz").checked,
 		dutch: document.getElementById("nl").checked,
 		finnish: document.getElementById("fi").checked,
@@ -39,10 +39,12 @@ function saveHideNonEnglish(){
 		spanish: document.getElementById("es").checked,
 		turkish: document.getElementById("tr").checked
 	};
-	var array = [];
-	for(var i in obj)
-		if(obj[i])
+	let array = [];
+	for(let i in obj){
+		if(obj[i]){
 			array.push(i);
+		}
+	}
 	status.innerHTML = JSON.stringify(array, null, "\t");
 	chrome.storage.sync.set({hide_non_english: JSON.stringify(array)}, ()=>status.innerHTML="Settings saved");
 }

@@ -1,20 +1,20 @@
-document.addEventListener("DOMContentLoaded", onLoad, false);
+document.addEventListener("DOMContentLoaded", onLoad);
 
 function onLoad(){
 	//add click event listeners for the cells, so clicking the cell also changes the checkbox
-	var rows = document.getElementById("tblHideOptions").rows;
+	let rows = document.getElementById("tblHideOptions").rows;
 	let i = rows.length;
 	while(i--){
 		let j = rows[i].cells.length;
 		while(j--){
-			rows[i].cells[j].addEventListener("click", (e)=>e.target.firstElementChild && e.target.firstElementChild.click(), false);
+			rows[i].cells[j].addEventListener("click", (e)=>e.target.firstElementChild && e.target.firstElementChild.click());
 		}
 	}
-	var chks = document.getElementsByTagName("input");
+	let chks = document.getElementsByTagName("input");
 	i = chks.length;
 	while(i--){
 		if(/_section/gi.test(chks[i].id)){
-			chks[i].addEventListener("change", (e)=>checkboxChanged(e.target), false);
+			chks[i].addEventListener("change", (e)=>checkboxChanged(e.target));
 		}
 	}
 	//add click event listeners for the buttons
@@ -22,7 +22,16 @@ function onLoad(){
 	document.getElementById("btnReset").addEventListener("click", chrome.storage.sync.get("hide_forums", setOptions));
 	document.getElementById("btnApply").addEventListener("click", setStorage);
 	//get options from chrome sync
-	chrome.storage.sync.get("hide_forums", setOptions);
+	chrome.storage.sync.get("hide_forum", setOptions);
+	let query = location.search && location.search.substring(1).split(/\&/);
+	i = query.length;
+	while(i--){
+		let param = query[i].split(/=/);
+		if(param[0]=="save"){
+			alert("options saved "+param[1]);
+			break;
+		}
+	}
 }
 
 
@@ -42,25 +51,43 @@ function checkboxChanged(chk){
 
 
 function setStorage(){
-	let chks = document.getElementById("tblHideOptions").getElementsByTagName("input")[0];
-	var array = [];
-	let i = chks.length;
+	let overlay = document.createElement("div"), msg = document.createElement("span");
+	overlay.className = "overlay";
+	overlay.style.display = "flex";
+	msg.innerHTML = "Wait while the options are being set...";
+	overlay.appendChild(msg);
+	document.body.appendChild(overlay);
+	let chks = document.getElementById("tblHideOptions").getElementsByTagName("input"), sections = [], subforums = [], i = chks.length;
 	while(i--){
 		if(chks[i].checked){
-			array.push(chks[i].id);
+			if(/_section/.test(chks[i].id)){
+				sections.push(chks[i].id.replace(/_section/, ""));
+			}
+			else subforums.push(chks[i].id.replace(/_forum/, ""));
 		}
 	}
-	chrome.storage.sync.set("hide_forums", JSON.stringify(array));
+	chrome.storage.sync.set({hide_forum: {sections: sections, subforums: subforums}}, ()=>overlay.parentElement.removeChild(overlay) && window.open(location.origin+location.pathname+"?save=successfully", "_self"));
 }
 
 
 function setOptions(res){
-	if(!res || !res.hide_forums){
+	if(!res || !res.hide_forum){
 		return;
 	}
-	var options = JSON.parse(res.hide_non_english);
-	let i = options.length;
+	let storage = res.hide_forum, sections = storage.sections, i = sections.length;
 	while(i--){
-		document.getElementById(res).checked = true;
+		sections[i] = sections[i]+"_section";
+	}
+	let subforums = storage.subforums;
+	i = subforums.length;
+	while(i--){
+		subforums[i] = subforums[i]+"_forum";
+	}
+	let options = [...sections, ...subforums];
+	i = options.length;
+	while(i--){
+		let chk = document.getElementById(options[i]);
+		chk.checked = true;
+		checkboxChanged(chk);
 	}
 }

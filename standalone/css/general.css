@@ -10,6 +10,7 @@ body {
   font-family: "Roboto", "Open Sans", Arial, Helvetica, sans-serif;
   font-size: 1.05rem;
   left: 0px;
+  overflow-x: hidden;
   text-rendering: optimizeLegibility;
   top: 0px;
   width: 100%;
@@ -126,4 +127,29 @@ input[type=checkbox] {
   cursor: pointer;
   vertical-align: middle;
   width: 50px;
+}
+
+div.overlay {
+  background-color: rgba(0, 0, 0, 0.3);
+  cursor: wait;
+  display: none;
+  height: 100%;
+  left: 0px;
+  margin: 0px;
+  text-align: center;
+  top: 0px;
+  width: 100%;
+}
+
+.backup {
+  display:flex;justify-content:center;align-items:center;width:100%;height:100%;
+}
+
+.center {
+  bottom: 0px;
+  cursor: inherit;
+  margin: auto;
+  left: 0px;
+  right: 0px;
+  top: 0px;
 }
