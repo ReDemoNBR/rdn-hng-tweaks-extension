@@ -64,7 +64,6 @@
 					break;
 				}
 			}
-			console.groupEnd();
 		}
 
 		container.innerHTML = "";

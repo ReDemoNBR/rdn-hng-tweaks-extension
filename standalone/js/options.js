@@ -19,7 +19,7 @@ function onLoad(){
 	}
 	//add click event listeners for the buttons
 	document.getElementById("btnClose").addEventListener("click", ()=>window.close());
-	document.getElementById("btnReset").addEventListener("click", chrome.storage.sync.get("hide_forums", setOptions));
+	document.getElementById("btnReset").addEventListener("click", ()=>chrome.storage.sync.get("hide_forums", setOptions));
 	document.getElementById("btnApply").addEventListener("click", setStorage);
 	//get options from chrome sync
 	chrome.storage.sync.get("hide_forum", setOptions);

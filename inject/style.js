@@ -58,8 +58,6 @@ function setOptions(res){
 		return;
 	}
 	let storage = res.hide_forum;
-	console.log(res);
-	console.log(res.hide_forum);
 	let children = container.children;
 	let subforums = storage.subforums;
 	if(subforums){
@@ -70,7 +68,6 @@ function setOptions(res){
 			while(j--){
 				let elem = list[j];
 				let text = elem.getElementsByTagName("h3")[0].textContent.trim().replace(/\s+/g, "_").toLowerCase();
-				console.log(text);
 				if(subforums.indexOf(text)!=-1 || subforums.indexOf(text.split("_|_")[0])!=-1){
 					elem.parentElement.removeChild(elem);
 				}

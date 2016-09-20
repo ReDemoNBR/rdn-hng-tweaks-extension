@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", onLoad);
 
 
 function onLoad(){
-  getTabURL((url)=>/\/forums\/topic\//i.test(url) && document.getElementById("btnLockTopic").setAttribute("style", "display:inline"));
-  document.getElementById("btnOptions").addEventListener("click", ()=>console.log("clicked") || chrome.runtime.openOptionsPage());
+  getTabURL((url)=>/\/forums\/topic\//i.test(url) && document.getElementById("btnLockTopic").setAttribute("style", "display:block"));
+  document.getElementById("btnOptions").addEventListener("click", ()=>chrome.runtime.openOptionsPage());
 }
 
 
