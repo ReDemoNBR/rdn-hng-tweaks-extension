@@ -7,7 +7,6 @@
 		if(listening){
 			listening.innerHTML = listening.innerHTML.replace(/we are listening\. influence/gi, "We are NEVER listening. You don't influence");
 		}
-
 	}
 	else{
 		let imgs = document.body.getElementsByTagName("img");
@@ -85,21 +84,4 @@ function setOptions(res){
 			}
 		}
 	}
-
-	//remove the elements
-	/*let list = JSON.parse(value.hide_non_english);
-	let divNonEnglish = container.getElementsByClassName("bbp-forum-link-list")[0];
-	let children = divNonEnglish.children;
-	let i = children.length;
-	while(i--){
-		let text = children[i].textContent.trim().replace(/\s+/g, " ");
-		text = text.substring(0, text.indexOf(" ")).toLowerCase();
-		let j = list.length;
-		while(j--){
-			if(new RegExp(list[j],"gi").test(text)){
-				divNonEnglish.removeChild(children[i]);
-				break;
-			}
-		}
-	}*/
 }

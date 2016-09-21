@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
   "author": "San Mônico (aka ReDemoN)",
-  "name": "ReDemoN's H&G Site tweaks",
+  "name": "ReDemoN's H&G Site Tweaks",
   "short_name": "RDN HnG Site Tweaks",
-  "description": "Style adjusts for Heroes & Generals site and some forum upgrades",
+  "description": "Enhanced navigation experience in Heroes & Generals pages, mainly in their forum",
   "version": "0.2.0",
   "background": {
     "persistent": false,
@@ -38,8 +38,7 @@
     "activeTab",
     "storage",
     "webNavigation",
-    "*://*.heroesandgenerals.com/*",
-    "*://heroesandgenerals.com/*"
+    "*://*.heroesandgenerals.com/*"
   ],
   "minimum_chrome_version": "52.0"
 }

@@ -8,10 +8,5 @@ function onLoad(){
 
 
 function getTabURL(cb) {
-  chrome.tabs.query({active:true, currentWindow:true}, (tabs)=>cb(tabs[0].url));
-}
-
-
-function getDomain(url){
-  return /\/\/(.*?)(\/|$)/i.exec(url)[1];
+  chrome.tabs.query({active:true, currentWindow:true}, tabs=>cb(tabs[0].url));
 }
