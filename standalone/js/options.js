@@ -7,19 +7,19 @@ function onLoad(){
 	while(i--){
 		let j = rows[i].cells.length;
 		while(j--){
-			rows[i].cells[j].addEventListener("click", (e)=>e.target.firstElementChild && e.target.firstElementChild.click());
+			rows[i].cells[j].addEventListener("click", e=>e.target.firstElementChild && e.target.firstElementChild.click());
 		}
 	}
 	let chks = document.getElementsByTagName("input");
 	i = chks.length;
 	while(i--){
 		if(/_section/gi.test(chks[i].id)){
-			chks[i].addEventListener("change", (e)=>checkboxChanged(e.target));
+			chks[i].addEventListener("change", e=>checkboxChanged(e.target));
 		}
 	}
 	//add click event listeners for the buttons
 	document.getElementById("btnClose").addEventListener("click", ()=>window.close());
-	document.getElementById("btnReset").addEventListener("click", chrome.storage.local.get("hide_forums", setOptions));
+	document.getElementById("btnReset").addEventListener("click", ()=>chrome.storage.local.get("hide_forums", setOptions));
 	document.getElementById("btnApply").addEventListener("click", setStorage);
 	//get options from chrome sync
 	chrome.storage.local.get("hide_forum", setOptions);

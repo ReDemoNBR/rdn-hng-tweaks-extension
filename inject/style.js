@@ -7,7 +7,6 @@
 		if(listening){
 			listening.innerHTML = listening.innerHTML.replace(/we are listening\. influence/gi, "We are NEVER listening. You don't influence");
 		}
-
 	}
 	else{
 		let imgs = document.body.getElementsByTagName("img");
@@ -32,7 +31,7 @@
 	//changes include: new fonts, font size increase, background image removal, element resizes and hiding
 	let injectStyle = document.createElement("style");
 	injectStyle.innerHTML = `@import 'https://fonts.googleapis.com/css?family=Open+Sans|Roboto';*:not(.fa):not(.dashicons){font-family:"Roboto","Open Sans",Arial,Helvetica,sans-serif !important;}
-	.menu-fixed .site-menu{width:calc(100% - 17px)} .promobar{display:none} .wrap{overflow-x:hidden;overflow-y:auto} .sidebar{max-width:400px} .row{max-width:`
+	.menu-fixed .site-menu{width:calc(100% - 17px)} body{color:#FFF} .promobar{display:none} .wrap{overflow-x:hidden;overflow-y:auto} .sidebar{max-width:400px} .row{max-width:`
 	+(/gallery/i.test(location.pathname)?"1200px":"initial")+`} .bbp-forum-link-list-header{padding:5px} .bbp-forum-link-list{display:block} .bbp-forum-link-title{display:inline}
 	.bbp-forum-last-post{display:inline;float:right} .bbp-forum-link{padding:5px 20px} h3.forum-sidebar-user-info-name a{font-size:200%} body{background-color:#202329} h1,h2,h3,h4,h5,h6{text-transform:none}
 	h1,h2,h3{font-variant:small-caps;font-weight:600} div.bbp-reply-content h6{font-weight:normal !important;font-size:1rem !important} .username{font-variant:normal}
@@ -68,7 +67,6 @@ function setOptions(res){
 			while(j--){
 				let elem = list[j];
 				let text = elem.getElementsByTagName("h3")[0].textContent.trim().replace(/\s+/g, "_").toLowerCase();
-				console.log(text);
 				if(subforums.indexOf(text)!=-1 || subforums.indexOf(text.split("_|_")[0])!=-1){
 					elem.parentElement.removeChild(elem);
 				}
