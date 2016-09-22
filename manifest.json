@@ -4,7 +4,7 @@
   "name": "ReDemoN's H&G Site Tweaks",
   "short_name": "RDN HnG Site Tweaks",
   "description": "Enhanced navigation experience in Heroes & Generals pages, mainly in their forum",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage_url": "https://github.com/ReDemoNBR/rdn-hng-tweaks-extension/tree/moz-master",
   "background": {
     "scripts": ["background.js"]
@@ -37,6 +37,9 @@
     "96": "icon/rdn_logo-96px.png",
     "128": "icon/rdn_logo-128px.png"
   },
+  "web_accessible_resources": [
+    "inject/style.css"
+  ],
   "permissions": [
     "activeTab",
     "storage",
