@@ -45,16 +45,13 @@
 
 	//checks each forum and fixes the precedence
 	for(let i=0; i<forums.length; i++){
-		let container = document.getElementById(forums[i].id).getElementsByClassName("bbp-forum-link-list")[0];
-		let children = container.childNodes;
-		let array = [];
+		let container = document.getElementById(forums[i].id).getElementsByClassName("bbp-forum-link-list")[0], children = container.childNodes, array = [];
 		for(let j=0; j<children.length; j++){
 			if(children[j].nodeType==1){
 				array.push(children[j]);
 			}
 		}
-		let sub = forums[i].subforums;
-		let sortedArray = [];
+		let sub = forums[i].subforums, sortedArray = [];
 		for(let j=0; j<sub.length; j++){
 			let regex = new RegExp(sub[j], "gi");
 			for(let k=0; k<array.length; k++){
@@ -65,7 +62,6 @@
 				}
 			}
 		}
-
 		container.innerHTML = "";
 		for(let j=0; j<sortedArray.length; j++){
 			container.appendChild(sortedArray[j]);
