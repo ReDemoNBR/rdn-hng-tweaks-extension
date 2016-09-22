@@ -1,5 +1,5 @@
 //fired when the DOM of heroesandgenerals.com is loaded
-chrome.webNavigation.onDOMContentLoaded.addListener(res=> {
+chrome.webNavigation.onDOMContentLoaded.addListener(res=>{
 	console.log("in H&G website");
 	chrome.pageAction.show(res.tabId);
 	console.log("inject style");

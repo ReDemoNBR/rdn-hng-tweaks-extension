@@ -44,7 +44,7 @@
 
 	//remove magnificent Copenhagen
 	let magnificent = document.getElementById("text-2");
-	magnificent.innerHTML = magnificent.innerHTML.replace(/the heart of magnificent copenhagen/gi, "Copenhagen");
+	magnificent && (magnificent.innerHTML = magnificent.innerHTML.replace(/the heart of magnificent copenhagen/gi, "Copenhagen"));
 })();
 
 
