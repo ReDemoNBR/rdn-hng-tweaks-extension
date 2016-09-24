@@ -1,6 +1,8 @@
 (function(){
-	let forum = /forums/i.test(location.pathname), noscripts = document.documentElement.getElementsByTagName("noscript"), i = noscripts.length;
+	let forum = /forums/i.test(location.pathname), noscripts = document.documentElement.getElementsByTagName("noscript"), i = noscripts.length, doc = document.documentElement;
 	document.title = forum && document.title.replace(/heroes \& generals/i, "H&G Forum").replace(/ - moderator sub-fora/gi, "") || document.title.replace(/heroes \& generals/gi, "H&G");
+	//remove all bootstrap data-tooltip attributes from all HTML elements
+	doc.innerHTML = doc.innerHTML.replace(/(<\w+\s)data-tooltip="([^"]*)/gi, (m0,m1,m2)=>m1+"title=\""+m2.replace(/<br>|<\/br>/gi, "\n"));
 	while(i--){
 		noscripts[i].parentElement.removeChild(noscripts[i]);
 	}
@@ -40,6 +42,15 @@
 	i = styles.length;
 	while(i--){
 		styles[i].innerHTML = styles[i].innerHTML.replace(/(background-image:)\s*url.*(;|\})/gi, "$1 none$2");
+	}
+	//remove bootstrap data-tooltip
+	let as = document.documentElement.getElementsByTagName("a");
+	i = as.length;
+	while(i--){
+		if(as[i].hasAttribute("data-tooltip")){
+			as[i].title = as[i].getAttribute("data-tooltip");
+			as[i].removeAttribute("data-tooltip");
+		}
 	}
 
 	//remove magnificent Copenhagen

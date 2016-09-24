@@ -1,6 +1,6 @@
 (function () {
-	//checks if it is not in the home of the forum
-	if(!/\/forums\/(?!(topic))/i.test(location.pathname)){
+	//checks if it is not in the home of the forum, and terminates if it is not
+	if(!/(\/forums\/|\/forums)$/i.test(location.pathname)){
 		return;
 	}
 

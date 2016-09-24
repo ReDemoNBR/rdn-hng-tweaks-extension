@@ -4,7 +4,7 @@
   "name": "ReDemoN's H&G Site Tweaks",
   "short_name": "RDN HnG Site Tweaks",
   "description": "Enhanced navigation experience in Heroes & Generals pages, mainly in their forum",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "background": {
     "persistent": false,
     "scripts": ["background.js"]
