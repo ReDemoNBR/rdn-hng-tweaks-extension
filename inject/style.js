@@ -1,10 +1,30 @@
 (function(){
 	let forum = /forums/i.test(location.pathname), noscripts = document.documentElement.getElementsByTagName("noscript"), i = noscripts.length, doc = document.documentElement;
 	document.title = forum && document.title.replace(/heroes \& generals/i, "H&G Forum").replace(/ - moderator sub-fora/gi, "") || document.title.replace(/heroes \& generals/gi, "H&G");
-	//remove all bootstrap data-tooltip attributes from all HTML elements
-	doc.innerHTML = doc.innerHTML.replace(/(<\w+\s)data-tooltip="([^"]*)/gi, (m0,m1,m2)=>m1+"title=\""+m2.replace(/<br>|<\/br>/gi, "\n"));
+	//remove all <noscript> tags
 	while(i--){
 		noscripts[i].parentElement.removeChild(noscripts[i]);
+	}
+	//remove all bootstrap data-tooltip attributes from all HTML elements
+	let tooltipRegex = /(<.+)data-tooltip="([^"]*)/gi, replacer = (s,m1,m2)=>m1+"title=\""+m2.replace(/<br>|<\/br>/gi, "\n");
+	doc.innerHTML = doc.innerHTML.replace(tooltipRegex, (s,m1,m2)=>replacer(s,m1,m2).replace(tooltipRegex, replacer))
+		.replace(/title="a moderator or reto team member has participated in the discussion"/gi, `title="A moderator or Reto team\nmember has participated\nin the discussion"`);
+	//add a tooltip for all the locked topic icons
+	let locks = doc.getElementsByClassName("dashicons-lock");
+	i = locks.length;
+	while(i--){
+		locks[i].setAttribute("title", "A moderator or a Reto team\nmember has locked this topic");
+	}
+	//add a tooltip for all the admin posted topics
+	let admins = doc.getElementsByClassName("dashicons-admin-post");
+	i = admins.length;
+	while(i--){
+		admins[i].setAttribute("title", "A moderator or a Reto team\nmember has stickied this topic");
+	}
+	let menuItems = doc.getElementsByClassName("menu-item");
+	i = menuItems.length;
+	while(i--){
+		menuItems[i].innerHTML = menuItems[i].innerHTML.toLowerCase();
 	}
 	if(forum){
 		chrome.storage.sync.get("hide_forum", setOptions);
