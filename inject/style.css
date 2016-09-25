@@ -81,3 +81,12 @@ a.forum-sidebar-user-menu-item {
 .bbp-thanks-list a {
   text-decoration: none;
 }
+
+i.bbp-icon-mark.fa.fa-thumb-tack {
+  cursor: default;
+}
+
+.menu-item a {
+  font-variant: small-caps;
+  text-transform: capitalize;
+}
